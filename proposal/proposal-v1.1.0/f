@@ -1,0 +1,18 @@
+                 List of relations
+ Schema |         Name          | Type  |  Owner   
+--------+-----------------------+-------+----------
+ public | applicant_collection  | table | postgres
+ public | applicant_liabilities | table | postgres
+ public | applicant_mortgage    | table | postgres
+ public | applicant_payment     | table | postgres
+ public | applicant_property    | table | postgres
+ public | applicant_record      | table | postgres
+ public | con_test              | table | postgres
+ public | crm_asset             | table | postgres
+ public | crm_lead              | table | postgres
+ public | deal                  | table | postgres
+ public | income_employer       | table | postgres
+ public | product_product       | table | postgres
+ public | res_partner           | table | postgres
+(13 rows)
+

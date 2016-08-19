@@ -1,0 +1,10 @@
+eclipse with-source=true
+compile
+run
+ping
+exit
+clean
+compile
+exit
+eclipse with-source=true
+run

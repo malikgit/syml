@@ -1,0 +1,22 @@
+@(product : Recommendation,opp_id:String)
+
+<div>
+<form action="editPost" method="POST">
+
+<input type="hidden" name="opp_id" value="@opp_id"/>
+<input type="hidden" name="mortgage" value="@product.getMortgageType"/>
+<input type="hidden" name="productId" value="@product.getProductID"/>
+Lender :  <input name="lender" value="@product.getLender"/><br>
+Product Name :<input name="productname" value="@product.getProduct"/><br>
+Term :  <input name="term" value="@product.getTerm"/><br>
+Amortization :  <input name="amortization" value="@product.getMaximumAmortization"/><br>
+Monthly Payment : <input name="payment" value="@product.getPayment"/><br>
+Interest Rate    : <input name="interestrate" value="@product.getInterestRate"/><br>
+
+Initial For Approval  :  <input name="initialforapproval" value="@product.getInitialforApproval"/><br>
+<div><input type="submit" value="submit"></input></div>
+</form>
+</div>
+
+
+

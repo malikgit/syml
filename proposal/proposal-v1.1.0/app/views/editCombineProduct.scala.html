@@ -1,0 +1,58 @@
+@(product : CombinedRecommendation,opp_id:String)
+
+<div>
+<form action="editCombinePost" method="POST">
+
+<input type="hidden" name="opp_id" value="@opp_id"/>
+
+<input type="hidden" name="productId" value="@product.getBaseProductID"/>
+<input type="hidden" name="addproductId" value="@product.getAdditionalProductID"/>
+
+
+<input type="hidden" name ="addlender" value="@product.getAdditionalLender"/>
+
+<input type="hidden" name ="totalMortgageAmount" value="@product.getTotalMortgageAmount"/>
+<input type="hidden" name ="basePosition" value="@product.getBasePosition"/>
+
+<input type="hidden" name ="additionalPosition" value="@product.getAdditionalPosition"/>
+<input type="hidden" name ="baseCashbackPercent" value="@product.getBaseCashbackPercent"/>
+
+<input type="hidden" name ="addcashback" value="@product.getAdditionalCashbackPercent"/>
+<input type="hidden" name ="baseMortgageType" value="@product.getBaseMortgageType"/>
+
+<input type="hidden" name ="addMortgageType" value="@product.getAdditionalMortgageType"/>
+
+
+
+<label>Lender :  </label><input name="baselender" value="@product.getBaseLender"/><br>
+
+Base Product Name :<input name="baseproductname" value="@product.getBaseProduct"/><br>
+Additional  Product Name :<input name="addproductname" value="@product.getAdditionalProduct"/><br>
+
+Base Term :  <input name="baseterm" value="@product.getBaseTerm"/><br>
+Additional Term :  <input name="addterm" value="@product.getAdditionalTerm"/><br>
+
+Base Amortization :  <input name="baseamortization" value="@product.getBaseAmortization"/><br>
+Additional Amortization :  <input name="addamortization" value="@product.getAdditionalAmortization"/><br>
+
+Base Mortgage Amount : <input name="basemortgageAmount" value="@product.getBaseMortgageAmount"/><br>
+Additional Mortgage  Amount : <input name="addmortgageAmount" value="@product.getAdditionalMortgageAmount"/><br>
+
+Base Monthly Payment : <input name="basemonthlypayment" value="@product.getBasePayment"/><br>
+Additional  Monthly Payment : <input name="addmonthlypayment" value="@product.getAdditionalPayment"/><br>
+
+Base Interest Rate    : <input name="baseinterestrate" value="@product.getBaseInterestRate"/><br>
+Additional Interest Rate    : <input name="addinterestrate" value="@product.getAdditionalInterestRate"/><br>
+
+ Total Payment    : <input name="totalPayment" value="@product.getTotalPayment"/><br>
+
+
+
+
+Initial For Approval  :  <input name="initialforapproval" value=""/><br>
+<div><input type="submit" value="submit"></input></div>
+</form>
+</div>
+
+
+

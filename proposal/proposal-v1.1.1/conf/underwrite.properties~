@@ -1,0 +1,154 @@
+
+
+#couchBaseUrl1=http://198.72.106.5:8091/pools
+#couchBaseBucketName=syml
+#couchBaseBucketPassword=symL@0115
+
+
+#couchBaseUrl2=http://198.72.106.10:8091/pools
+# couchBaseBucketName2=syml
+
+#couchBaseBucketPassword2=symL@0115
+
+ 
+#for production use  -----
+
+#couchBaseUrl3=http://52.1.244.89:8091/pools
+
+#couchBaseBucketName3=syml
+#couchBaseBucketPassword3=symL@0115
+
+couchBaseUrl3=http://192.168.1.47:8091/pools
+couchBaseBucketName3=Bizruntime
+couchBaseBucketPassword3=root
+
+
+#change from here 
+ #couchBaseUrl3=http://52.25.159.93:8091/pools
+ 
+
+#couchBaseUrl1=http://198.72.106.5:8091/pools
+couchBaseBucketName=Bizruntime
+couchBaseBucketPassword=root
+
+
+#couchBaseUrl2=http://198.72.106.10:8091/pools
+ couchBaseBucketName2=Bizruntime
+ couchBaseBucketPassword2=root
+ 
+#dev couchbase
+# couchBaseUrl=http://107.23.89.76:8091/pools
+ 
+
+maximumRetry=3
+
+
+
+#change to here
+
+
+#for localuse--------
+
+#couchBaseUrl3=http://52.4.161.145:8091/pools
+#couchBaseBucketName=symllocal
+#couchBaseBucketPassword=symL@0115
+
+#couchBaseUrl=http://107.23.89.76:8091/pools
+#couchBaseBucketName=syml
+#couchBaseBucketPassword=symL@0115
+
+
+
+#UW_DB_URL = localhost:5432/underwriting
+UW_DB_USERNAME = openerp
+
+#UW_DB_USERNAME = postgres
+
+# Local is admin,  Dev is 123456,  Production is syml@1409221220
+#UW_DB_PASSWORD = 123456
+#UW_DB_PASSWORD = postgres
+UW_DB_URL = 192.168.1.47:5432/openerp
+
+#UW_DB_URL = postgres-01.cd3syw7xmhzz.us-east-1.rds.amazonaws.com:5432/underwriting
+
+#UW_DB_USERNAME = postgres
+# Local is admin,  Dev is 123456,  Production is syml@1409221220
+#UW_DB_PASSWORD = postgres-syml-0415151104
+
+UW_DB_PASSWORD = openerp
+
+UW_OPENERP_URL_1 = 192.168.1.47
+UW_OPENERP_URL_2 = 192.168.1.47
+
+#UW_OPENERP_URL_1 = dev-crm.visdom.ca
+#UW_OPENERP_URL_2 = dev-crm.visdom.ca
+
+#UW_OPENERP_URL_1 = openerp.crm.local
+#UW_OPENERP_URL_2 = openerp.crm.local
+#UW_OPENERP_URL_1 = crm1.visdom.ca
+#UW_OPENERP_URL_2 = crm2.visdom.ca
+#UW_OPENERP_URL_1 = 192.168.1.120
+#UW_OPENERP_URL_2 = 192.168.1.120
+#UW_OPENERP_PORT = 443
+UW_OPENERP_PORT = 8069
+
+UW_OPENERP_DATABASE_NAME = openerp
+#UW_OPENERP_DATABASE_NAME = symlsys
+
+#UW_OPENERP_USERNAME = guy@visdom.ca
+#UW_OPENERP_PASSWORD = VisdomTesting
+
+
+UW_OPENERP_USERNAME = admin
+UW_OPENERP_PASSWORD = BusinessPlatform@Visdom1
+
+
+
+UW_FILOGIX_GATEWAY_URL = http://52.24.236.56:8080/filogix-ws-gateway
+UW_MORWEB_GATEWAY_URL = http://localhost:8080/morweb-ws-gateway
+
+# Following code normally should be configured in *-ws-gateway project, but 
+# accidentally something like this is appear in underwriting code.
+UW_FILOGIX_FIRM_CODE = VSDM
+# UW_FILOGIX_FIRM_CODE = AAMI
+UW_FILOGIX_USER_LOGIN = AGENT1 
+# UW_FILOGIX_USER_LOGIN = WILSONA
+
+
+#for 
+#postgresURL=jdbc:postgresql://198.72.106.8:5432/symlsys
+#postgresUserName=openerp
+#postgresPassword=openerp
+
+#for development
+postgresURL=jdbc:postgresql://postgres-01.cd3syw7xmhzz.us-east-1.rds.amazonaws.com:5432/symlsys
+postgresUserName=erpuser
+postgresPassword=erpuser
+
+postgresURL1=jdbc:postgresql://postgres-01.cd3syw7xmhzz.us-east-1.rds.amazonaws.com:5432/symlsys
+postgresUserName1=erpuser
+postgresPassword1=erpuser
+
+#FOR 192.168.1.47 host====
+
+postgresURL=jdbc:postgresql://192.168.1.47:5432/openerp
+postgresUserName=openerp
+postgresPassword=openerp
+
+postgresURL1=jdbc:postgresql://192.168.1.47:5432/openerp
+postgresUserName1=openerp
+postgresPassword1=openerp
+
+#==================
+#couchBaseUrl1=http://198.72.106.5:8091/pools
+#couchBaseBucketName=syml
+#couchBaseBucketPassword=symL@0115
+
+#couchBaseUrl2=http://198.72.106.10:8091/pools
+# couchBaseBucketName2=syml
+
+#couchBaseBucketPassword2=symL@0115
+ 
+#couchBaseUrl3=http://52.4.161.145:8091/pools
+#couchBaseBucketName3=symllocal
+#couchBaseBucketPassword3=symL@0115

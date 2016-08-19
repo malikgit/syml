@@ -1,0 +1,257 @@
+@font-face {
+		font-family: EurofurenceLight;
+		src: url('eurof35.ttf');
+}
+@font-face {
+	font-family: EurofurenceRegular;
+	src: url('eurof55.ttf');
+}
+body{
+	background-color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;  
+	background-repeat:repeat-x;
+	width:100%;      
+	color:#000;	
+}
+.body{
+	overflow:auto !important;
+}
+*{
+padding: 0px;
+margin: 0px;
+}
+
+#header, #header_blank {
+	width:981px;
+	height:auto;
+	background-repeat:no-repeat;
+	background-position:top center;
+}
+
+#container{
+width: 981px;
+margin-left: auto;
+margin-right: auto;
+background-image:url('../images/wizard/container_back.gif');
+background-repeat:repeat-y;
+background-position:top center;
+}
+
+#container #header h1{
+	/* float: right; */
+	position: relative;
+	/* right: 30px; */
+	vertical-align: middle;
+	font-size: 50px;
+	line-height: 120px;
+	width: 64%;
+	display: inline-block;
+	text-align: right;
+	font-family:eurofurencelight;
+}
+#container #header h1 span{color:#0B5394;font-family:eurofurenceregular;}
+#container #header h2{
+	text-align:center;
+	font-weight: bold;	
+	font-size:20px;
+	line-height:normal;
+}
+#container #header h2 span{
+	font-size:16px;
+}
+#container #header h2 .second-span{
+	font-size:18px;
+}
+#container #header h3{
+	text-align: center;
+	line-height: normal;
+}
+#container .content{
+padding: 1% 5%;
+}
+#container .content h3{
+	font-size:20px;
+	color:#0070C0;
+}
+#container .content p{
+	font-size:16px;
+	line-height:22px;
+}
+#container .content ul{
+	padding: 0 0;
+	/* margin: 0 auto !important; */
+	width: auto;
+}
+#container .content ul li{
+	display: list-item;
+	/* margin: 0 auto; */
+	padding: 0 0;
+	width: auto;
+	text-align: left;
+}
+#container .content .square_box {
+	width: 60%;
+	margin: 2% auto;
+	padding: 2%;
+	background-color: #CEE1F3;
+	border: 2px solid #000;
+	border-radius: 40px;
+}
+#container .content .square_box div{
+	width:100%;
+}
+.square_box label {
+font-size: 15px;
+cursor: default;
+}
+.square_box label.subject {
+display: inline-block;
+width: 30%;
+}
+.square_box label.value {
+display: inline-block;
+width: 60%;
+}
+#container .content .square_box .col1{
+	width:60%;
+	display:inline-block;
+}
+#container .content .square_box .col2{
+	/*width:30%;*/
+	display:inline-block;
+}
+.square_box .col1 label.subject {
+width: 50% !important;
+}
+.square_box .col1 label.value {
+width: 40% !important;
+}
+.square_box .col2 .subject {
+width: 50%;
+}
+.square_box .col2 input[type="text"] {
+width: 40%;
+}
+.CSSTableGenerator {
+	margin:0px;
+	padding: 2% 5%;
+	width: 90%;
+/* box-shadow: 10px 10px 5px #888888; */
+	/*border:1px solid #ffffff;*/
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;	
+}.CSSTableGenerator tr td:first-child{
+	font-weight:bold;
+}.CSSTableGenerator tr:hover td{
+	
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#ffffff; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#D4E0EE; }
+.CSSTableGenerator tr.heading {
+	border-top: 2px solid #7AA0CD;
+	border-bottom: 2px solid #7AA0CD;
+}
+.CSSTableGenerator tr:last-child{
+border-bottom:2px solid #7AA0CD
+}
+.CSSTableGenerator td{
+	vertical-align:middle;
+	
+	
+	/*border:1px solid #ffffff;
+	border-width:0px 1px 1px 0px;*/
+	text-align:left;
+	padding:7px;
+	font-size:12px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#3B618E;
+}.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+		background:-o-linear-gradient(bottom, #ffffff 5%, #ffffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #ffffff) );
+	background:-moz-linear-gradient( center top, #ffffff 5%, #ffffff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff");	background: -o-linear-gradient(top,#ffffff,ffffff);
+
+	background-color:#ffffff;
+	border:0px solid #ffffff;
+	text-align:left;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#3B618E;
+	line-height: normal;
+	vertical-align: top;
+	padding-bottom: 20px;
+}
+.CSSTableGenerator tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #ffffff 5%, #ffffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #ffffff) );
+	background:-moz-linear-gradient( center top, #ffffff 5%, #ffffff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff");	background: -o-linear-gradient(top,#ffffff,ffffff);
+
+	background-color:#ffffff;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
+.CSSTableGenerator table tr td input[type="text"] {
+width: 50px;
+}
+.button{
+	text-align:right;
+}
+.button button {
+	background-color: #9FC5E7;
+	border: 2px solid #1B4587;
+	padding: 1% 4%;
+	border-radius: 10px;
+	margin: 0 10px;
+	font-size: 18px;
+}

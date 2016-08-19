@@ -1,0 +1,88 @@
+@(recomeded: String)
+
+  <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script>
+function validateForm() {
+	
+	
+	alert("kkkk");
+	
+	
+  var lender = document.forms["myForm"]["lender"].value;
+    var productName =document.forms["myForm"]["productName"].value;
+    var term =  document.forms["myForm"]["term"].value;  
+    var amortization =  document.forms["myForm"]["amortization"].value; 
+    var payment =  document.forms["myForm"]["payment"].value;
+    var interestrate =  document.forms["myForm"]["interestrate"].value;
+    var initialforApproval =  document.forms["myForm"]["initialforApproval"].value;
+    var cashbackPercent =  document.forms["myForm"]["cashbackPercent"].value;
+    
+    
+    
+    if (lender == null ||lender== "") {
+        alert("Lender must be filled out");
+        return false;
+    }
+    else if (productName == null ||productName == "") {
+        alert("productName must be filled out");
+        return false;
+    }
+    else if  (term == null ||term == "") {
+        alert("term must be filled out");
+        return false;
+    }
+    else if  (amortization == null ||amortization == "") {
+        alert("amortization must be filled out");
+        return false;
+    }
+    else if  (payment == null ||payment == "") {
+        alert("payment must be filled out");
+        return false;
+    }
+    else if  (interestrate == null ||interestrate == "") {
+        alert("interestrate must be filled out");
+        return false;
+    }
+    else if (initialforApproval == null ||initialforApproval == "") {
+        alert("initialforApproval must be filled out");
+        return false;
+    }
+    else if  (cashbackPercent == null ||cashbackPercent == "") {
+        alert("cashbackPercent must be filled out");
+        return false;
+    }
+    else{
+    	return true;
+    }
+    
+    
+  
+}
+</script>
+<table >
+<tr><td><form action="addAndSave" onsubmit=" return validateForm();" name="myForm"  method="Post"></td></tr>
+<input type="hidden" name="opp_id" value="@recomeded">
+<input type="hidden" name="productId" value="1000">
+<tr><td>Lender       :<input type="text" name="lender"></td></tr>
+<tr><td>ProductName  :<input type="text" name="productName"></td></tr>
+
+<tr><td>Term       :<input type="text" name="term"></td></tr>
+<tr><td>Amortization       :<input type="text" name="amortization"></td></tr>
+<input type="hidden" name="mortgageAmount" value="9000">
+
+<tr><td>Monthly Payment :<input type="text" name="payment"></td></tr>
+<tr><td>Interest Rate :<input type="text" name="interestrate"></td></tr>
+<tr><td>Initial For Approval  Rate :<input type="text" name="initialforApproval"></td></tr>
+
+<tr><td>Cashback Percent :<input type="text" name="cashbackPercent"></td></tr>
+<input type="hidden" name="position" value="123">
+<input type="hidden" name="mortgageType" value="3">
+
+
+
+<tr><td><input type="submit" value="ProductSubmit"></td></tr>
+<tr><td></form></td></tr> 
+</table>

@@ -1,0 +1,1439 @@
+@(pojo: UwAppAllAlgo, orignalDetails: OrignalDetails, rec1 :List[Recommendation],rec2 :List[Recommendation],rec3 :List[CombinedRecommendation],recomendDetails: RecommendDetails,maximumPurchase:List[MaximumPurchase],data:Integer,expDate:String,companyName:String)
+
+
+
+@import java.lang.String; var result:String ="Years"
+@import java.lang.String; var result1:String ="Years"
+@import scala.util.control._;val loop = new Breaks;
+
+@main("Mortgage Proposal") {
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en-gb" dir="ltr" lang="en-gb"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 
+      <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+      
+      
+ <style>
+ 
+  .btn-xlarge {
+
+   color: #fff;
+    padding: 18px 28px;
+    font-size: 22px; //change this to your desired size
+    line-height: 100px;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 0px;
+            border-radius: 0px;
+}
+    body { font-size: 62.5%; }
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style> 
+  <script>
+
+<script type="text/javascript">
+jQuery.noConflict(); jQuery(document).ready(function(){ 
+                            jQuery("body a[rel^='prettyPhoto']").prettyPhoto({
+                            theme:'dark_rounded',
+                            show_title:1,
+                            animation1_speed:'fast',
+                            slideshow:'5000',
+                            opacity:'0.05',
+                            autoplay_slideshow:0,
+                            counter_separator_label:'/',
+                            autoplay:0,social_tools:0});
+                        });
+  </script>
+  <script type="text/javascript">
+  
+  $(document).ready(function(){
+      
+    //  alert("ddd");
+      var i=0;
+     $("#add_row").click(function(){
+      $('#addr'+i).html("<td><input name='lender"++"' type='hiddden'/></td><td><input name='lender""' type='text' /> </td><td><input  name='product_name"+i+"' type='text' ></td><td><input  name='term"+i+"' type='text'></td><td><input  name='amortization"+i+"' type='text' ></td><td><input  name='monthly_payment"+i+"' type='text' ></td><td><input  name='interest_rate"+i+"' type='text' ></td> <td>Edit</td><td><a id='delete_row' >Delete</a></td>");
+
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+  //    alert("dddde");
+      i++; 
+  });
+     $("#delete_row").click(function(){
+         //alert("delte");
+         
+        if(i>1){
+            $("#addr"+(i-1)).html('');
+            i--;
+        } 
+     });
+    
+
+});
+  </script>
+  <script type="text/javascript">
+  
+  $(document).ready(function(){
+      
+    //  alert("ddd");
+      var i=1;
+     $("#add_row1").click(function(){
+      $('#addrr'+i).html("<td><input name='lender"+ (i+1) +"' type='hiddden'/></td><td><input name='lender"+i+"' type='text' /> </td><td><input  name='product_name"+i+"' type='text' ></td><td><input  name='term"+i+"' type='text'></td><td><input  name='amortization"+i+"' type='text' ></td><td><input  name='monthly_payment"+i+"' type='text' ></td><td><input  name='interest_rate"+i+"' type='text' ></td> <td>Edit</td>");
+
+      $('#tab_logic1').append('<tr id="addrr'+(i+1)+'"></tr>');
+     // alert("dddde");
+      i++; 
+  });
+    
+
+});
+  </script>
+  <script type="text/javascript">
+  
+  $(document).ready(function(){
+      
+     // alert("ddd");
+      var i=1;
+     $("#add_row2").click(function(){
+      $('#addrrr'+i).html("<td><input name='lender"+ (i+1) +"' type='hiddden'/></td><td><input name='lender"+i+"' type='text' /> </td><td><input  name='product_name"+i+"' type='text' ></td><td><input  name='term"+i+"' type='text'></td><td><input  name='amortization"+i+"' type='text' ></td><td><input  name='monthly_payment"+i+"' type='text' ></td><td><input  name='interest_rate"+i+"' type='text' ></td> <td>Edit</td><td>Delete</td>");
+
+      $('#tab_logic2').append('<tr id="addrrr'+(i+1)+'"></tr>');
+     // alert("dddde");
+      i++; 
+  });
+    
+
+});
+  </script>
+  <script type="text/javascript">
+  
+      function Validator(){
+         // alert("ddddd");
+           //  ...bla bla bla... the checks
+           if(                              ){
+              document.getElementById('theFormID').submit();
+              return(true);
+           }else{
+              return(false);
+           }
+        }
+  </script>
+
+            <link href="@routes.Assets.at("stylesheets/css.css")" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            h1,h2,h3,h4,h5,h6,.site-title{
+                font-family: 'Open Sans', sans-serif;
+            }
+        </style>
+            <style type="text/css">
+        body.site
+        {
+            border-top: 3px solid #0088cc;
+            background-color: #f4f6f7       }
+        a
+        {
+            color: #0088cc;
+        }
+        .navbar-inner, .nav-list > .active > a, .nav-list > .active > a:hover, .dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover, .nav-pills > .active > a, .nav-pills > .active > a:hover,
+        .btn-primary
+        {
+            background: #0088cc;
+        }
+        .navbar-inner
+        {
+            -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .25), inset 0 -1px 0 rgba(0, 0, 0, .1), inset 0 30px 10px rgba(0, 0, 0, .2);
+            -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .25), inset 0 -1px 0 rgba(0, 0, 0, .1), inset 0 30px 10px rgba(0, 0, 0, .2);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .25), inset 0 -1px 0 rgba(0, 0, 0, .1), inset 0 30px 10px rgba(0, 0, 0, .2);
+        }
+    </style>
+        
+    <link href="@routes.Assets.at("stylesheets/styles_002.css")" type="text/css" rel="stylesheet">
+    <link href="@routes.Assets.at("stylesheets/styles.css")" type="text/css" rel="stylesheet">
+    <script src="@routes.Assets.at("javascripts/jquery_002.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/jutooltip_002.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/jutooltip.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/jutooltip_003.js")" type="text/javascript"></script>
+    <script type="text/javascript">jQuery(document).ready(function($){
+            jutooltip_api = $('.jutooltip').jutooltip({effect: 'toggle', showDuration: 200, hideDuration: 200, easing: 'easeInOutBack', predelay: 0, delay: 30, opacity: 1, tip: '', fadeIE: false, position : ['center','right'], offset: [0, 0], cancelDefault: true, manualCloseTooltip: false, direction: 'up', bounce: false, slideOffset: 10}).jutooltip_dynamic({top: { direction: 'up' } });
+            });</script>
+<style class="firebugResetStyles" type="text/css" charset="utf-8">/* See license.txt for terms of usage */
+/** reset styling **/
+.firebugResetStyles {
+    z-index: 2147483646 !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: block !important;
+    border: 0 none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    outline: 0 !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    position: fixed !important;
+    transform: rotate(0deg) !important;
+    transform-origin: 50% 50% !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent none !important;
+    pointer-events: none !important;
+    white-space: normal !important;
+}
+style.firebugResetStyles {
+    display: none !important;
+}
+
+.firebugBlockBackgroundColor {
+    background-color: transparent !important;
+}
+
+.firebugResetStyles:before, .firebugResetStyles:after {
+    content: "" !important;
+}
+/**actual styling to be modified by firebug theme**/
+.firebugCanvas {
+    display: none !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.firebugLayoutBox {
+    width: auto !important;
+    position: static !important;
+}
+
+.firebugLayoutBoxOffset {
+    opacity: 0.8 !important;
+    position: fixed !important;
+}
+
+.firebugLayoutLine {
+    opacity: 0.4 !important;
+    background-color: #000000 !important;
+}
+
+.firebugLayoutLineLeft, .firebugLayoutLineRight {
+    width: 1px !important;
+    height: 100% !important;
+}
+
+.firebugLayoutLineTop, .firebugLayoutLineBottom {
+    width: 100% !important;
+    height: 1px !important;
+}
+
+.firebugLayoutLineTop {
+    margin-top: -1px !important;
+    border-top: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineRight {
+    border-right: 1px solid #999999 !important;
+}Brad Pitt
+
+.firebugLayoutLineBottom {
+    border-bottom: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineLeft {
+    margin-left: -1px !important;
+    border-left: 1px solid #999999 !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.firebugLayoutBoxParent {
+    border-top: 0 none !important;
+    border-right: 1px dashed #E00 !important;
+    border-bottom: 1px dashed #E00 !important;
+    border-left: 0 none !important;
+    position: fixed !important;
+    width: auto !important;
+}
+
+.firebugRuler{
+    position: absolute !important;
+}
+
+.firebugRulerH {
+    top: -15px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 14px !important;
+    background: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%13%88%00%00%00%0E%08%02%00%00%00L%25a%0A%00%00%00%04gAMA%00%00%D6%D8%D4OX2%00%00%00%19tEXtSoftware%00Adobe%20ImageReadyq%C9e%3C%00%00%04%F8IDATx%DA%EC%DD%D1n%E2%3A%00E%D1%80%F8%FF%EF%E2%AF2%95%D0D4%0E%C1%14%B0%8Fa-%E9%3E%CC%9C%87n%B9%81%A6W0%1C%A6i%9A%E7y%0As8%1CT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AATE9%FE%FCw%3E%9F%AF%2B%2F%BA%97%FDT%1D~K(%5C%9D%D5%EA%1B%5C%86%B5%A9%BDU%B5y%80%ED%AB*%03%FAV9%AB%E1%CEj%E7%82%EF%FB%18%BC%AEJ8%AB%FA'%D2%BEU9%D7U%ECc0%E1%A2r%5DynwVi%CFW%7F%BB%17%7Dy%EACU%CD%0E%F0%FA%3BX%FEbV%FEM%9B%2B%AD%BE%AA%E5%95v%AB%AA%E3E5%DCu%15rV9%07%B5%7F%B5w%FCm%BA%BE%AA%FBY%3D%14%F0%EE%C7%60%0EU%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5JU%88%D3%F5%1F%AE%DF%3B%1B%F2%3E%DAUCNa%F92%D02%AC%7Dm%F9%3A%D4%F2%8B6%AE*%BF%5C%C2Ym~9g5%D0Y%95%17%7C%C8c%B0%7C%18%26%9CU%CD%13i%F7%AA%90%B3Z%7D%95%B4%C7%60%E6E%B5%BC%05%B4%FBY%95U%9E%DB%FD%1C%FC%E0%9F%83%7F%BE%17%7DkjMU%E3%03%AC%7CWj%DF%83%9An%BCG%AE%F1%95%96yQ%0Dq%5Dy%00%3Et%B5'%FC6%5DS%95pV%95%01%81%FF'%07%00%00%00%00%00%00%00%00%00%F8x%C7%F0%BE%9COp%5D%C9%7C%AD%E7%E6%EBV%FB%1E%E0(%07%E5%AC%C6%3A%ABi%9C%8F%C6%0E9%AB%C0'%D2%8E%9F%F99%D0E%B5%99%14%F5%0D%CD%7F%24%C6%DEH%B8%E9rV%DFs%DB%D0%F7%00k%FE%1D%84%84%83J%B8%E3%BA%FB%EF%20%84%1C%D7%AD%B0%8E%D7U%C8Y%05%1E%D4t%EF%AD%95Q%BF8w%BF%E9%0A%BF%EB%03%00%00%00%00%00%00%00%00%00%B8vJ%8E%BB%F5%B1u%8Cx%80%E1o%5E%CA9%AB%CB%CB%8E%03%DF%1D%B7T%25%9C%D5(%EFJM8%AB%CC'%D2%B2*%A4s%E7c6%FB%3E%FA%A2%1E%80~%0E%3E%DA%10x%5D%95Uig%15u%15%ED%7C%14%B6%87%A1%3B%FCo8%A8%D8o%D3%ADO%01%EDx%83%1A~%1B%9FpP%A3%DC%C6'%9C%95gK%00%00%00%00%00%00%00%00%00%20%D9%C9%11%D0%C0%40%AF%3F%EE%EE%92%94%D6%16X%B5%BCMH%15%2F%BF%D4%A7%C87%F1%8E%F2%81%AE%AAvzr%DA2%ABV%17%7C%E63%83%E7I%DC%C6%0Bs%1B%EF6%1E%00%00%00%00%00%00%00%00%00%80cr%9CW%FF%7F%C6%01%0E%F1%CE%A5%84%B3%CA%BC%E0%CB%AA%84%CE%F9%BF)%EC%13%08WU%AE%AB%B1%AE%2BO%EC%8E%CBYe%FE%8CN%ABr%5Dy%60~%CFA%0D%F4%AE%D4%BE%C75%CA%EDVB%EA(%B7%F1%09g%E5%D9%12%00%00%00%00%00%00%00%00%00H%F6%EB%13S%E7y%5E%5E%FB%98%F0%22%D1%B2'%A7%F0%92%B1%BC%24z3%AC%7Dm%60%D5%92%B4%7CEUO%5E%F0%AA*%3BU%B9%AE%3E%A0j%94%07%A0%C7%A0%AB%FD%B5%3F%A0%F7%03T%3Dy%D7%F7%D6%D4%C0%AAU%D2%E6%DFt%3F%A8%CC%AA%F2%86%B9%D7%F5%1F%18%E6%01%F8%CC%D5%9E%F0%F3z%88%AA%90%EF%20%00%00%00%00%00%00%00%00%00%C0%A6%D3%EA%CFi%AFb%2C%7BB%0A%2B%C3%1A%D7%06V%D5%07%A8r%5D%3D%D9%A6%CAu%F5%25%CF%A2%99%97zNX%60%95%AB%5DUZ%D5%FBR%03%AB%1C%D4k%9F%3F%BB%5C%FF%81a%AE%AB'%7F%F3%EA%FE%F3z%94%AA%D8%DF%5B%01%00%00%00%00%00%00%00%00%00%8E%FB%F3%F2%B1%1B%8DWU%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*UiU%C7%BBe%E7%F3%B9%CB%AAJ%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5*%AAj%FD%C6%D4%5Eo%90%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5%86%AF%1B%9F%98%DA%EBm%BBV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%AD%D6%E4%F58%01%00%00%00%00%00%00%00%00%00%00%00%00%00%40%85%7F%02%0C%008%C2%D0H%16j%8FX%00%00%00%00IEND%AEB%60%82") repeat-x !important;
+    border-top: 1px solid #BBBBBB !important;
+    border-right: 1px dashed #BBBBBB !important;
+    border-bottom: 1px solid #000000 !important;
+}
+
+.firebugRulerV {
+    top: 0 !important;
+    left: -15px !important;
+    width: 14px !important;
+    height: 100% !important;
+    background: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%0E%00%00%13%88%08%02%00%00%00%0E%F5%CB%10%00%00%00%04gAMA%00%00%D6%D8%D4OX2%00%00%00%19tEXtSoftware%00Adobe%20ImageReadyq%C9e%3C%00%00%06~IDATx%DA%EC%DD%D1v%A20%14%40Qt%F1%FF%FF%E4%97%D9%07%3BT%19%92%DC%40(%90%EEy%9A5%CB%B6%E8%F6%9Ac%A4%CC0%84%FF%DC%9E%CF%E7%E3%F1%88%DE4%F8%5D%C7%9F%2F%BA%DD%5E%7FI%7D%F18%DDn%BA%C5%FB%DF%97%BFk%F2%10%FF%FD%B4%F2M%A7%FB%FD%FD%B3%22%07p%8F%3F%AE%E3%F4S%8A%8F%40%EEq%9D%BE8D%F0%0EY%A1Uq%B7%EA%1F%81%88V%E8X%3F%B4%CEy%B7h%D1%A2E%EBohU%FC%D9%AF2fO%8BBeD%BE%F7X%0C%97%A4%D6b7%2Ck%A5%12%E3%9B%60v%B7r%C7%1AI%8C%BD%2B%23r%00c0%B2v%9B%AD%CA%26%0C%1Ek%05A%FD%93%D0%2B%A1u%8B%16-%95q%5Ce%DCSO%8E%E4M%23%8B%F7%C2%FE%40%BB%BD%8C%FC%8A%B5V%EBu%40%F9%3B%A72%FA%AE%8C%D4%01%CC%B5%DA%13%9CB%AB%E2I%18%24%B0n%A9%0CZ*Ce%9C%A22%8E%D8NJ%1E%EB%FF%8F%AE%CAP%19*%C3%BAEKe%AC%D1%AAX%8C*%DEH%8F%C5W%A1e%AD%D4%B7%5C%5B%19%C5%DB%0D%EF%9F%19%1D%7B%5E%86%BD%0C%95%A12%AC%5B*%83%96%CAP%19%F62T%86%CAP%19*%83%96%CA%B8Xe%BC%FE)T%19%A1%17xg%7F%DA%CBP%19*%C3%BA%A52T%86%CAP%19%F62T%86%CA%B0n%A9%0CZ%1DV%C6%3D%F3%FCH%DE%B4%B8~%7F%5CZc%F1%D6%1F%AF%84%F9%0F6%E6%EBVt9%0E~%BEr%AF%23%B0%97%A12T%86%CAP%19%B4T%86%CA%B8Re%D8%CBP%19*%C3%BA%A52huX%19%AE%CA%E5%BC%0C%7B%19*CeX%B7h%A9%0C%95%E1%BC%0C%7B%19*CeX%B7T%06%AD%CB%5E%95%2B%BF.%8F%C5%97%D5%E4%7B%EE%82%D6%FB%CF-%9C%FD%B9%CF%3By%7B%19%F62T%86%CA%B0n%D1R%19*%A3%D3%CA%B0%97%A12T%86uKe%D0%EA%B02*%3F1%99%5DB%2B%A4%B5%F8%3A%7C%BA%2B%8Co%7D%5C%EDe%A8%0C%95a%DDR%19%B4T%C66%82fA%B2%ED%DA%9FC%FC%17GZ%06%C9%E1%B3%E5%2C%1A%9FoiB%EB%96%CA%A0%D5qe4%7B%7D%FD%85%F7%5B%ED_%E0s%07%F0k%951%ECr%0D%B5C%D7-g%D1%A8%0C%EB%96%CA%A0%A52T%C6)*%C3%5E%86%CAP%19%D6-%95A%EB*%95q%F8%BB%E3%F9%AB%F6%E21%ACZ%B7%22%B7%9B%3F%02%85%CB%A2%5B%B7%BA%5E%B7%9C%97%E1%BC%0C%EB%16-%95%A12z%AC%0C%BFc%A22T%86uKe%D0%EA%B02V%DD%AD%8A%2B%8CWhe%5E%AF%CF%F5%3B%26%CE%CBh%5C%19%CE%CB%B0%F3%A4%095%A1%CAP%19*Ce%A8%0C%3BO*Ce%A8%0C%95%A12%3A%AD%8C%0A%82%7B%F0v%1F%2FD%A9%5B%9F%EE%EA%26%AF%03%CA%DF9%7B%19*Ce%A8%0C%95%A12T%86%CA%B8Ze%D8%CBP%19*Ce%A8%0C%95%D1ae%EC%F7%89I%E1%B4%D7M%D7P%8BjU%5C%BB%3E%F2%20%D8%CBP%19*Ce%A8%0C%95%A12T%C6%D5*%C3%5E%86%CAP%19*Ce%B4O%07%7B%F0W%7Bw%1C%7C%1A%8C%B3%3B%D1%EE%AA%5C%D6-%EBV%83%80%5E%D0%CA%10%5CU%2BD%E07YU%86%CAP%19*%E3%9A%95%91%D9%A0%C8%AD%5B%EDv%9E%82%FFKOee%E4%8FUe%A8%0C%95%A12T%C6%1F%A9%8C%C8%3D%5B%A5%15%FD%14%22r%E7B%9F%17l%F8%BF%ED%EAf%2B%7F%CF%ECe%D8%CBP%19*Ce%A8%0C%95%E1%93~%7B%19%F62T%86%CAP%19*Ce%A8%0C%E7%13%DA%CBP%19*Ce%A8%0CZf%8B%16-Z%B4h%D1R%19f%8B%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1%A2%A52%CC%16-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2EKe%98-Z%B4h%D1%A2EKe%D02%5B%B4h%D1%A2EKe%D02%5B%B4h%D1%A2E%8B%96%CA0%5B%B4h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%16-%95a%B6h%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-Z*%C3l%D1%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z%B4T%86%D9%A2E%8B%16-Z%B4T%06-%B3E%8B%16-Z%B4T%06-%B3E%8B%16-Z%B4h%A9%0C%B3E%8B%16-Z%B4h%A9%0CZf%8B%16-Z%B4h%A9%0CZf%8B%16-Z%B4h%D1R%19f%8B%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1%A2%A52%CC%16-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2EKe%98-Z%B4h%D1%A2EKe%D02%5B%B4h%D1%A2EKe%D02%5B%B4h%D1%A2E%8B%96%CA0%5B%B4h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%16-%95a%B6h%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-Z*%C3l%D1%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z%B4T%86%D9%A2E%8B%16-Z%B4T%06-%B3E%8B%16-Z%B4T%06-%B3E%8B%16-Z%B4h%A9%0C%B3E%8B%16-Z%B4h%A9%0CZf%8B%16-Z%B4h%A9%0CZf%8B%16-Z%B4h%D1R%19f%8B%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1%A2%A52%CC%16-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2EKe%98-Z%B4h%D1%A2EKe%D02%5B%B4h%D1%A2EKe%D02%5B%B4h%D1%A2E%8B%96%CA0%5B%B4h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%16-%95a%B6h%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-Z*%C3l%D1%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z%B4T%86%D9%A2E%8B%16-Z%B4T%06-%B3E%8B%16-Z%B4%AE%A4%F5%25%C0%00%DE%BF%5C'%0F%DA%B8q%00%00%00%00IEND%AEB%60%82") repeat-y !important;
+    border-left: 1px solid #BBBBBB !important;
+    border-right: 1px solid #000000 !important;
+    border-bottom: 1px dashed #BBBBBB !important;
+}
+
+.overflowRulerX > .firebugRulerV {
+    left: 0 !important;
+}
+
+.overflowRulerY > .firebugRulerH {
+    top: 0 !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.fbProxyElement {
+    position: fixed !important;
+    pointer-events: auto !important;
+}
+</style>
+
+<style type="text/css">
+
+#left {
+    width:200px;
+    height:200px;
+    float:left;
+    background:;
+}
+
+#right {
+    width:200px;
+    height:200px;
+    float:right;
+    background:;
+}
+
+#blue_box {
+    position: relative;
+    background:;
+    width:500px;
+    height:220px;
+    
+}
+
+.wrap {
+width: 50%;
+}
+
+.floatleft, .floatright {
+    float:left;
+    width: 50%;
+    background-color: #ff0000;
+    height: 400px;
+}
+
+.floatright {
+    background-color: #00ff00;
+    width: 50%;
+}
+
+.divider{
+    position:absolute;
+    left:50%;
+    padding-left:20px;
+    top:30%;
+    height:130px;
+    bottom:0%;
+    border-left:1px solid black;
+}
+
+.dividerone{
+    position:absolute;
+    top:30%;
+    height:130px;
+    bottom:0%;
+}
+
+.dividertwo{
+    position:absolute;
+    top:30%;
+    height:130px;
+    bottom:0%;
+}
+
+
+</style>
+</head>
+
+
+<body  class="site com_mortgageapplication view-mortgageapplicationedit no-layout no-task fluid"><div id="PleaseWait" style="display: none;"><img style="width:100px;" src="@routes.Assets.at("loading.html")"></div><div id="overlay" class="ui-widget-overlay" style="z-index: 1001; display: none;"></div>
+
+<form action="/proposalData" method="post">
+<input type="hidden"  name="id" value="@pojo.getOpportunityID">
+    <!-- Body -->
+    <div class="body">
+        <div class="container-fluid">
+            <!-- Header -->
+            <header class="header" role="banner">
+                <div class="header-inner clearfix">
+                    <a class="brand pull-left" href="https://dev-webserv.visdom.ca/">
+                                            </a>
+                    <div class="header-search pull-right">
+                        
+                    </div>
+                </div>
+            </header>
+                        
+            <div class="row-fluid">
+                                <main id="content" role="main" class="span12">
+                    <!-- Begin Content -->
+                    
+                    
+<div id="system-message-container">
+<div id="system-message">
+</div>
+</div>
+                    <title>Mortgage Proposal</title>
+<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/wizard2.css")">
+<div id="wrap1">
+<div id="mortgage-form" class="">
+<div id="container" style="margin-top:2px">
+    <div id="header">
+        <img src="@routes.Assets.at("images/vission_11.png")" style="padding-left:20px;" width="300" align="left">
+        <h1><span>M</span>ortgage <span>P</span>roposal</h1>
+        @for(user <- pojo.getApplicantsNames){
+        <h2>
+                        @user.getFirstName @user.getLastName<br>
+                                </h2>
+                                }
+                <h3>
+            @pojo.getAddress<br>
+            
+        </h3>
+            </div>
+    <div class="content">
+        <div class="content1">
+          <h1 style="color:#0070C0;font-size:30px;">Instructions</h1>
+       
+          <p>Please initial the box beside the mortgage you desire and click Submit at the bottom.  This proposal is available  until @expDate</p>
+          
+          
+            <h3>Goals</h3>
+            
+             @for(market <- pojo.getMarketingNotes){
+        
+        
+        			@if(market.getNoteName.equals("Goals")){
+        			 <p>@{
+        			  market.getNoteContent
+        			}</p>
+                   }
+                   }
+            <!--p>Congratulations on your goal to own the property at 321 Summit Drive, Calgary, AB. In your application, you indicated you wanted to purchase this property with a down payment of $70,000 and financing of $375,000. As we have explored mortgage options for you, we have also considered goals of cost savings, ease, payout flexibility and financial saving. In short we have sought to discover a mortgage which serves you rather than you serving a Mortgage.</p-->
+            <!-- <p>Congratulations on your goal to refinance the property at @pojo.getAddress. In your application, you indicated you 
+wanted to refiance (or renew financing) this property.The following 
+proposal outlines the best options for acheiving your goal.</p> -->
+<!--            <input id="bl" value="http://openerp.crm.local:8069/" type="hidden">
+ -->            <h3>Original Application</h3>
+            <p>On your original mortgage application, you requested a Fixed 
+mortgage with a 5 Year term.  The below details represent the best 
+option in the category of mortgage which initially interested you.</p>
+            <div class="square_box">
+              <div><input type="hidden" name="productid" value=" @orignalDetails.getProductID"   ><label class="subject">Property Value: </label><label class="value">$ @orignalDetails.getPropertyValue</label></div><div><label class="subject">Downpayment / Equity: </label><label class="value">     $   @orignalDetails.getDownpaymentEquity</label></div><div><label class="subject">Mortgage Amount: </label><label class="value">    $   @orignalDetails.getMortgageAmount</label></div><div><label class="subject">Insurance Amount: </label><label class="value">  $   @orignalDetails.getInsuranceAmount</label></div><div><label class="subject">Total Mortgage: </label><label class="value">   $   @orignalDetails.getTotalMortgage</label></div><div><label class="subject">Amortization: </label><label class="value">           @orignalDetails.getAmortization year</label></div><div><label class="subject">Mortgage Type: </label><label class="value">          @orignalDetails.getMortgageType</label></div><div><label class="subject">Mortgage Term: </label><label class="value">           @orignalDetails.getMortgageTerm </label></div><div><label class="subject">Payment Amount: </label><label class="value">     $   @orignalDetails.getPaymentAmount</label></div><div><label class="subject">Interest Rate: </label><label class="value">          @orignalDetails.getInterestRate %</label></div><div class="col1"><label class="subject">Lender: </label><label class="value">               @orignalDetails.getLender        </label></div><div class="col2"><table style="width: 60%;"><tbody><tr id=" 1924"><td><label class="subject">Initial Here:</label><input class="product_selection" style="width: 50px;" type="text" id="products" name="product_id"></td></tr></tbody></table></div> 
+            
+            </div>
+
+           
+            <h3>Helping you achieve your goals</h3>
+            <!--p>When considering a significant financial decision such as a mortgage, wouldn’t you like to know you are getting the best option for which you can qualify? Achieving this can be a challenge because there are thousands of different Mortgage Products available in Canada. Understanding the options and those which you may qualify for is a daunting and time consuming task.</p>
+            <p>To help you achieve your goals, we have virtually underwritten your application across <b>2,343</b> Mortgage Products. Of those options, the property you are financing could potentially qualify for <b>1,763</b> different possibilities. We have filtered these options for you (based upon cost effectiveness, interest rate, flexibility and other criteria) to the best 15 Mortgages presently offered by lenders which fit your goals. And finally, we have also provided a single recommendation for your consideration along with the reasons for our recommendation.</p-->
+            <p>To help you achieve your goals, we have virtually underwritten 
+your application across 971 Mortgage Products.  Of those options, the 
+property you are financing could potentially qualify for 244 different 
+possibilities.  We have filtered these options for you (based upon cost 
+effectiveness, interest rate, flexibility and other criteria) to the 
+best 13 mortgages presently offered by lenders which fit your goals.  
+And finally, we have also provided a single recommendation for your 
+consideration along with the reasons for our recommendation.</p>
+            
+            
+                   
+ @if(companyName=="WFG"){
+
+ 
+
+
+
+            <h3>Our Recommendation</h3> 
+            
+            
+            
+            
+           <!--  <p style="color:red ; text-align: right" >We need to decide how combined products affects our recommendation</p> -->
+            
+            <div class="square_box">
+          
+            
+            <div id="blue_box">
+            <input type="hidden" name="productid" value="@recomendDetails.getProductID"   >
+           
+            <input type="hidden" id="propertyValue" name="propertyValue" value="@recomendDetails.getPropertyValue" />
+
+          
+            <input type="hidden" id="downpaymentEquity" name="downpaymentEquity" value="@recomendDetails.getDownpaymentEquity"/>
+    
+            <input type="hidden" name="mortgageAmount" id="mortgageAmount" value="@recomendDetails.getMortgageAmount"/>
+           
+            
+      
+              <input type="hidden" name="insuranceAmount" id="insuranceAmount" value="@recomendDetails.getInsuranceAmount"/>
+          
+            
+           
+                <input type="hidden" id="totalMortgage" name="totalMortgage" value="@recomendDetails.getTotalMortgage"/>
+
+            
+           
+                            <input type="hidden" id="amortization" name="amortization" value="@recomendDetails.getAmortization"/>
+           
+           
+          
+                            <input type="hidden" id="mortgageType" name="mortgageType" value="@recomendDetails.getMortgageType"/>
+      
+                            <input type="hidden" id="mortgageTerm" name="mortgageTerm" value="@recomendDetails.getMortgageTerm"/>
+            
+          
+      
+                                        <input type="hidden" id="paymentAmount" name="paymentAmount" value="@recomendDetails.getPaymentAmount"/>
+            
+            
+                                        <input type="hidden" id="interestRate" name="interestRate" value="@recomendDetails.getInterestRate"/>
+      
+      
+      
+                                        <input type="hidden" id="lender" name="lender" value="@recomendDetails.getLender"/>
+           
+           
+           
+            <div><input type="hidden" name="productid" value="@recomendDetails.getProductID"   ></div>
+             
+          
+    <!-- <div id="left"> -->
+    
+   
+   
+    <div >
+            <label class="subject">Property Value: </label><label style="float:center;margin-left: 10%;" class="value">$ @recomendDetails.getPropertyValue</label>
+            </div>
+            <div>
+            <label class="subject">Downpayment / Equity: </label><label style="float:center;margin-left: 10%;" class="value">$ @recomendDetails.getDownpaymentEquity</label>
+            </div>
+   
+
+<div style="float:left; width:30%;" class="dividerone">
+<label>Mortgage Amount:</label>
+<label>Amortization:</label>
+<label>Mortgage Type:</label>
+<label>Mortgage Term:</label>
+<label>Payment Amount:</label>
+
+
+<label>Interest Rate: </label>
+
+
+
+
+
+
+
+</div>
+
+
+<div style="float:right; width:20%; padding-left:170px;" class="dividertwo" >
+
+
+
+<label>$ @recomendDetails.getMortgageAmount</label>
+<label>@recomendDetails.getAmortization year</label>
+<label>@recomendDetails.getMortgageType</label>
+<label>@recomendDetails.getMortgageTerm</label>
+<label>$ @recomendDetails.getPaymentAmount</label>
+<label>@recomendDetails.getInterestRate %</label>
+
+<!-- <label>$   @recomendDetails.getTotalMortgageAmount</label>
+<label>$   @recomendDetails.getTotalPayment</label> -->
+
+</div>    
+
+<div class="divider">
+
+
+       
+            
+<label>$ @recomendDetails.getMortgageAmount1</label> 
+<label>@recomendDetails.getAmortization1 year</label>           
+<label>@recomendDetails.getMortgageType1</label>
+<label>@recomendDetails.getMortgageTerm1</label>
+<label>$ @recomendDetails.getPaymentAmount1</label>
+<label>@recomendDetails.getInterestRate1 %</label>
+
+<!-- <label></label>
+<label></label> -->
+</div>       
+    </div>
+     <div >
+            <label class="subject">Lender : </label><label style="float:center;margin-left: 10%;" class="value">@recomendDetails.getLender</label>
+            </div>
+   <div >
+            <label class="subject">Total Mortgage: </label><label style="float:center;margin-left: 10%;" class="value">$   @recomendDetails.getTotalMortgageAmount</label>
+            </div>
+            <div>
+            <label class="subject">Total Payment: </label><label style="float:center;margin-left: 10%;" class="value">$   @recomendDetails.getTotalPayment</label>
+            </div>
+    
+   <div class="col2"><table style="width: 60%;"><tbody><tr id=" 1924"><td><label class="subject">Initial Here:</label><input class="product_selection" style="width: 50px;" type="text" id="products" name="product_id"></td></tr></tbody></table>
+            </div>  
+           
+           
+             <div>
+                        
+   
+            </div>
+            </div>
+            
+            
+           
+                      
+                     
+          	
+           
+           
+ 
+ 
+ }else{
+ 
+        
+           <h3>Our Recommendation</h3> 
+            
+            
+            
+            
+           <!--  <p style="color:red ; text-align: right" >We need to decide how combined products affects our recommendation</p> -->
+            
+            <div class="square_box">
+            
+            
+            
+            <div>
+            
+            <input type="hidden" name="productid" value="@recomendDetails.getProductID"   >
+           
+            <input type="hidden" id="propertyValue" name="propertyValue" value="@recomendDetails.getPropertyValue" />
+
+          
+            <input type="hidden" id="downpaymentEquity" name="downpaymentEquity" value="@recomendDetails.getDownpaymentEquity"/>
+    
+            <input type="hidden" name="mortgageAmount" id="mortgageAmount" value="@recomendDetails.getMortgageAmount"/>
+           
+            
+      
+              <input type="hidden" name="insuranceAmount" id="insuranceAmount" value="@recomendDetails.getInsuranceAmount"/>
+          
+            
+           
+                <input type="hidden" id="totalMortgage" name="totalMortgage" value="@recomendDetails.getTotalMortgage"/>
+
+            
+           
+                            <input type="hidden" id="amortization" name="amortization" value="@recomendDetails.getAmortization"/>
+           
+           
+          
+                            <input type="hidden" id="mortgageType" name="mortgageType" value="@recomendDetails.getMortgageType"/>
+      
+                            <input type="hidden" id="mortgageTerm" name="mortgageTerm" value="@recomendDetails.getMortgageTerm"/>
+            
+          
+      
+                                        <input type="hidden" id="paymentAmount" name="paymentAmount" value="@recomendDetails.getPaymentAmount"/>
+            
+            
+                                        <input type="hidden" id="interestRate" name="interestRate" value="@recomendDetails.getInterestRate"/>
+      
+      
+      
+                                        <input type="hidden" id="lender" name="lender" value="@recomendDetails.getLender"/>
+           
+           
+            <div>
+            <div><input type="hidden" name="productid" value="@recomendDetails.getProductID"   >
+           
+            <br>
+            <label class="subject">Property Value: </label>
+           
+            <label class="value">$ @recomendDetails.getPropertyValue
+            
+            </label>
+            </div>
+            <div>
+            <label class="subject">Downpayment / Equity: </label>
+            <label class="value">$@recomendDetails.getDownpaymentEquity
+            
+            </label>
+            </div>
+            <div>
+            <label class="subject">Mortgage Amount: </label>
+            <label class="value">$ @recomendDetails.getMortgageAmount
+           </label>
+            </div>
+            
+           
+            <div>
+            <label class="subject">Amortization: </label>
+            <label class="value">@recomendDetails.getAmortization year
+            </label>
+            </div>
+            <div><label class="subject">Mortgage Type: </label>
+            <label class="value">@recomendDetails.getMortgageType
+          </label>
+            </div><div><label class="subject">Mortgage Term: </label>
+            <label class="value">@recomendDetails.getMortgageTerm
+            </label>
+            </div><div><label class="subject">Payment Amount:</label>
+            <label class="value">$@recomendDetails.getPaymentAmount
+            </label>
+            </div>
+            <div><label class="subject">Interest Rate: </label>
+            <label class="value">@recomendDetails.getInterestRate %
+            </label>
+            </div>
+            <div ><label class="subject">Lender: </label>
+            <label class="value">@recomendDetails.getLender
+           </label>
+            </div>
+             <div>
+            <label class="subject">Total Mortgage: </label>
+            <label class="value">$   @recomendDetails.getTotalMortgage
+           </label>
+            </div>
+            
+            <div class="col2"><table style="width: 60%;"><tbody><tr id=" 1924"><td><label class="subject">Initial Here:</label><input class="product_selection" style="width: 50px;" type="text" id="products" name="product_id"></td></tr></tbody></table></div>  
+            </div>
+            
+           
+             <div>
+                      <!--   <td><a href="/editOurRecommend?opp_id=@pojo.getOpportunityID&productId=@recomendDetails.getProductID&propertyValue=@recomendDetails.getPropertyValue&downpaymentEquity=@recomendDetails.getDownpaymentEquity&mortgageAmount=@recomendDetails.getMortgageAmount&insuranceAmount=@recomendDetails.getInsuranceAmount&totalMortgage=@recomendDetails.getTotalMortgage&amortization=@recomendDetails.getAmortization&mortgageType=@recomendDetails.getMortgageType&mortgageTerm=@recomendDetails.getMortgageTerm&paymentAmount=@recomendDetails.getPaymentAmount&interestRate=@recomendDetails.getInterestRate&lender=@recomendDetails.getLender">Edit</a></td> -->
+   
+            </div>
+            </div>
+            
+           
+                      
+                     
+            </div>
+           
+ 
+ }
+          
+           
+           
+       
+            
+               <!--div class="col1"><label class="subject">Lender:</label><label class="value">Merix</label></div>
+            </div>
+            <input id="dn" value="symlsys" type="hidden">
+            <p>For many people, the selection of a mortgage often involves an 
+effort to understand the balance between reducing cost and reducing 
+risk. Most of us like to save as much money as possible, though we also 
+do not want our costs to rise in the future in case interest rates go 
+up. Additionally, if interest rates fall, we don’t want to be locked in 
+at a higher rate. A third consideration in mortgage decisions involves 
+payout penalties if you sell your property or refinance it before the 
+term is complete. In our recommendation, we have sought to understand 
+your personal “balance” between reducing risk and reducing cost.</p>
+            <!--p>Based upon the future lifestyle questions you answered in your application, your “bias” towards reducing future risk (the possibility of rising interest rates and/or payout penalties) in your mortgage is low. This creates an opportunity for you to reduce your current mortgage costs with a variable Mortgage. We recommended the above mortgage solution because it most closely aligns with your personal “balance” between reducing risk and reducing cost.</p-->
+            <p>Based upon the future lifestyle questions you answered in your 
+application, your bias towards reducing future risk (the possibility of 
+rising interest rates and/or payout penalties) or saving current 
+mortgage costs is balanced.  We recommended the above mortgage solution 
+because it most closely aligns with your personal balance between 
+reducing risk and reducing cost. </p>
+            <p>The following characteristics of this mortgage may help you consider this recommendation:<br> 
+            </p><p>Cost Comparison:  This recommendation is $84 / month less 
+expensive than a 5 year fixed mortgage.
+Payout Risk Comparison:  This recommendation has a maximum payout 
+penalty of 3 months of interest (currently approximately $1935).  In 
+contrast, a 5 Year Fixed Mortgage from some lenders could have a payout 
+penalty as high as $36000.
+</p>
+            <p>Interest rates would need to rise by more than approximately 1.17%
+ over the next 2 years before a 5 Year Fixed mortgage would save you any
+ money.</p>
+            <p></p>
+                        
+<script>
+
+$
+(
+    function()
+    {           
+    
+        $("input[id^=products]").click 
+        ( 
+            function() 
+            {          
+                  // alert("mmm");
+                var otherCks = $("input[id^=products]").not(this);
+                if( !$(this).is( ":input" ))
+                {                        
+                    $(".product_selection").attr("disabled" , true );              
+                    //otherCks.removeAttr ( "disabled" );                  
+                }                   
+                else
+                {                        
+                    $(".product_selection").removeAttr ( "disabled" );                  
+
+                    otherCks.attr("disabled" , true)
+                }            
+            }
+        );      
+    }
+);
+jQuery(function ($) {        
+    $('form').bind('submit', function () {
+      $(this).find(':input').prop('disabled', false);
+    });
+  });
+
+
+</script>
+@if(data==1){
+
+ <h3>Maximum Purchase</h3>
+  
+  <p>When qualifying for a mortgage with fluctuating interest rates or a shorter term, the Government of Canada requires that 
+  lenders use a higher interest in their qualification formulas than the actual rate of the product. This is to ensure that home 
+  buyers have some 'financial margin' if interest rates happen to rise over the next 5 years. Condo fees also present an 
+  additional consideration because lenders consider these as fixed monthly cost which is not required if you purchase a house.
+  The following section outlines the various maximum purchase amounts you qualify for depending on the type and term of
+  mortgage you select. This pre-approval is based on the lenders and insurers acceptance of all supporting documents and
+  property.</p>
+
+
+
+<div>
+           
+                        <div class="CSSTableGenerator">
+                    <table id="MyTablemaximum" >
+                        <tbody><tr class="heading">
+                            <td>
+                                
+                            </td>
+                            <td>
+                              Debt
+                              Reduction
+                            </td>
+                            <td>
+                            Down
+                            Payment
+                               
+                            </td>
+                            <td>
+                            Mortgage
+                            Amount
+                            </td>
+                            <td>
+                               Insurance
+                               (See notes) 
+                            </td>
+                            <td>
+                              Maximum
+                              Purchase
+                            </td>
+                            <td>
+                             
+                            </td>
+                            <td>
+                             
+                            </td>
+                           
+                        </tr>
+                       @for(maxpur <- maximumPurchase){
+                   
+                     <tr     id="96"><td>@maxpur.getKey</td><td>@maxpur.getDebtReduction</td><td>@maxpur.getLargestDownpaymentHouse</td><td>@maxpur.getMaximumMortgageNoCondo</td><td>@maxpur.getInsureAmountMaxMortgage</td><td>@maxpur.getVariableMortHouseNoDebtRepayValue</td><!-- <td><input class="product_selection" id="products" type="text" name="product_id"></td> -->
+                   
+                   </tr> 
+                    
+                    }</tbody></table>
+                    
+                    
+                  
+
+                
+                   
+                 
+                    
+                   
+                   
+                   
+                   
+                  
+  
+        </div>
+         
+        </td>
+        </div>
+       
+                              
+                </br>            
+                
+                <p>Until you have an offer in place, there is no need to decide upon the exact mortgage type and term you desire. Once you
+                 have found the property you want and placed an offer upon it, we will review all the mortgages in Canada at that time on
+                  your behalf and find the best ones for which your property can qualify. However, there is value in completing a pre-approval
+                   with a selected lender. In the event interest rates fall between now and when you purchase your property, the future
+                    mortgage on your property will use the current lower rates. Alternatively, in the event rates fall, your future mortgage will
+                     have the new lower rates.</p>
+
+            
+        }
+                                    <h3>Variable Options</h3>
+                                    
+                                     @for(market <- pojo.getMarketingNotes){
+        
+        
+        			@if(market.getNoteName.equals("VariableRecommendations")){
+        			 <p>@{
+        			  market.getNoteContent
+        			}</p>
+                   }
+                   }  
+            
+            <div>
+           
+                        <div class="CSSTableGenerator">
+                    <table id="MyTable">
+                        <tbody><tr class="heading">
+                            <td>
+                                Lender
+                            </td>
+                            <td>
+                                Product Name
+                            </td>
+                            <td>
+                                Term
+                            </td>
+                            <td>
+                                Amortization
+                            </td>
+                            <td>
+                                Monthly<br> Payment
+                            </td>
+                            <td>
+                                Interest<br> Rate
+                            </td>
+                            <td>
+                                Initial For<br> Approval
+                            </td>
+                        </tr>
+                        @for(recommendation <- rec1){
+                         @if(recommendation.getTerm.equals("0")){           
+	               @{
+	            
+              recommendation.setTerm("6")
+             result1="Months"
+             
+               }
+               
+               }else{
+                @{result1="Years"}
+               }
+                        
+                         <input type="hidden" id="recommendationProduct"  value="@recommendation.getProduct"/>
+                     <input type="hidden" id="recommendationTerm" value="@recommendation.getTerm Years"/>
+                     <input type="hidden" id="recommendationMaximumAmortization" value="@recommendation.getMaximumAmortization"/>
+                     <input type="hidden" id="recommendationPayment" value="@recommendation.getPayment"/>
+                     <input type="hidden" id="recommendationInterestRate" value="@recommendation.getInterestRate %"/>
+                        
+                     <tr     id="96"><td><input type="hidden" name="productid" value=" @recommendation.getProductID"   >@recommendation.getLender</td>
+                     <td>@recommendation.getProduct</td>
+                     <td>@recommendation.getTerm @result1</td>
+                     <td>@recommendation.getMaximumAmortization</td><td>@recommendation.getPayment</td><td>@recommendation.getInterestRate %</td><td><input class="product_selection" type="text" id="products" name="product_id"></td>
+                    
+                   <!--  <td><a href="/deleteProductById?productId=@recommendation.getProductID&opp_id=@pojo.getOpportunityID">Delete</a></td> -->
+                     </tr> 
+                       
+                    
+                    }</tbody></table>
+                    
+                    <!--  <a href="/add?id=@pojo.getOpportunityID" class="btn btn-default pull-left">Create ADD</a> -->
+                    
+                    
+                   
+                   
+                   
+                   
+                   
+  
+        </div>
+       
+        </td>
+                              
+                            
+                </div>
+               
+            
+
+        
+
+        
+
+                <input id="dw" value="%$10VisdomTesting" type="hidden">
+                            <h3>Fixed Options</h3>
+                            
+                              @for(market <- pojo.getMarketingNotes){
+        
+        
+        			@if(market.getNoteName.equals("FixedRecommendations")){
+        			 <p>@{
+        			  market.getNoteContent
+        			}</p>
+                   }
+                   }
+            <!-- <p>The below table represents the best <b id="div2"></b> qualifying options* from the
+ 746 fixed rate mortgages presently available through Visdom's Lender 
+Network.</p> -->
+                        <!--p>With a fixed term mortgage, the rate and payment will stay the same for the entire term of the mortgage. This type of mortgage is suitable if interest rates are rising or if you need to be entirely certain that your payments are fixed (i.e. of you would find an increase in payment to really difficult financially). The benefit of certainty in interest rate and payment comes with the disadvantage where rates are often higher than variable mortgages and there is also an increased risk of higher payout penalties in the event you either refinance your mortgage or sell your property prior to the end of the term. The below table represents the best 12 options* from the 2581 fixed rate mortgages we examined to determine the fit for your goals.</p-->
+            <div >
+                        <div class="CSSTableGenerator">
+                    <table id="MyTable1">
+                        <tbody><tr class="heading">
+                            <td>
+                                Lender
+                            </td>
+                            <td>
+                                Product Name
+                            </td>
+                            <td>
+                                Term
+                            </td>
+                            <td>
+                                Amortization
+                            </td>
+                            <td>
+                                Monthly<br> Payment
+                            </td>
+                            <td>
+                                Interest<br> Rate
+                            </td>
+                            <td>
+                                Initial For<br> Approval
+                            </td>
+                            <td>
+                             
+                            </td>
+                            <td>
+                             
+                            </td>
+                        </tr>
+                        @for(recommendation <- rec2){
+                         @if(recommendation.getTerm.equals("0")){           
+	               @{
+	            
+              recommendation.setTerm("6")
+             result="Months"
+             
+               }
+               
+               }else{
+                @{result="Years"}
+               }
+                            <input type="hidden" id="recommendationProduct"  value="@recommendation.getProduct"/>
+                     <input type="hidden" id="recommendationTerm" value="@recommendation.getTerm Years"/>
+                     <input type="hidden" id="recommendationMaximumAmortization" value="@recommendation.getMaximumAmortization"/>
+                     <input type="hidden" id="recommendationPayment" value="@recommendation.getPayment"/>
+                     <input type="hidden" id="recommendationInterestRate" value="@recommendation.getInterestRate %"/>
+                     
+                        
+                     <tr id="96"><td><input type="hidden" name="productid" value=" @recommendation.getProductID"   >@recommendation.getLender</td>
+                     <td>@recommendation.getProduct</td>
+                     <td>@recommendation.getTerm @result</td>
+                     <td>@recommendation.getMaximumAmortization</td><td>@recommendation.getPayment</td><td>@recommendation.getInterestRate %</td><td><input class="product_selection" type="text" id="products" name="product_id"></td>
+                  
+                   <!--  <td><a href="/deleteProductById?productId=@recommendation.getProductID&opp_id=@pojo.getOpportunityID">Delete</a></td> -->
+                     
+                     </tr>    
+                    
+                    
+                    }
+                        </tbody></table>
+                     <!--   <a href="/addfixed?id=@pojo.getOpportunityID" class="btn btn-default pull-left">Create ADD</a> -->
+                       
+                               
+                </div>
+                            </div>
+                        
+
+
+<h3>Combined Options</h3>
+
+ @for(market <- pojo.getMarketingNotes){
+        
+        
+        			@if(market.getNoteName.equals("CombinedTable")){
+        			 <p>@{
+        			  market.getNoteContent
+        			}</p>
+                   }
+                   }
+
+
+ <div>
+                        <div class="CSSTableGenerator">
+                     <table id="MyTable2">
+                        <tbody><tr class="heading">
+                            <td>
+                                Lender
+                            </td>
+                            <td>
+                                Product Name
+                            </td>
+                            <td>
+                                Term
+                            </td>
+                            <td>
+                                Amortization
+                            </td>
+                            <td>
+                                Amount 
+                            </td>
+                             <td>
+                              Monthly Payment
+                            </td>
+                            <td>
+                                Interest<br> Rate
+                            </td>
+                             <td>
+                               Total <br> Mortgage/<br>Payment
+                            </td>
+                            <td>
+                                Initial For<br> Approval
+                            </td>
+                            <td>
+                             
+                            </td>
+                            <td>
+                             
+                            </td>
+                        </tr>
+                            @for(recommendation <- rec3){
+                            <input type="hidden" id="recommendationProduct"  value="@recommendation.getBaseProductID"/>
+                    
+                        
+                     <tr id="96">
+                    <tr>
+                     <td><input type="hidden" name="productid" value=" @recommendation.getBaseProductID">
+                   <br><br>
+                     @recommendation.getBaseLender
+                     </br></br><br>	
+                    
+                     
+                     
+                     </td>
+                   <td>
+                   <br>
+                   @recommendation.getBaseProduct
+                   <br><br><br>
+                   @recommendation.getAdditionalProduct
+                   
+                   </td>
+                     
+                     
+                     <td>@recommendation.getBaseTerm
+                     <br><br><br>
+                     @recommendation.getAdditionalTerm
+                     </td>
+                     <td>@recommendation.getBaseAmortization
+                     <br><br><br>
+                     @recommendation.getAdditionalAmortization
+                     </td>
+                     <td>@recommendation.getBaseMortgageAmount
+                      <br><br><br>
+                     @recommendation.getAdditionalMortgageAmount
+                     </td>
+                     <td>@recommendation.getBasePayment
+                      <br><br><br>
+                     @recommendation.getAdditionalPayment
+                     </td>
+                     <td>@recommendation.getBaseInterestRate %
+                      <br><br><br>
+                     @recommendation.getAdditionalInterestRate % 
+                     </td>
+
+ 						<td>
+ 						<br>
+ 						
+                     @recommendation.getTotalPayment
+                     <br><br>
+                     </td><td>
+                     <input class="product_selection" type="text"   id="products" name="product_id"></td>
+                    
+                     </tr>
+                     </tr>
+                    
+                  
+
+
+                }
+                </tbody></table>
+                  <!--  <a href="/addloc?id=@pojo.getOpportunityID" class="btn btn-default pull-left">Create ADD</a> -->
+                </div>
+                            </div> 
+
+
+
+
+
+
+
+                             
+                       
+                              
+                            
+       
+</br>
+        
+                        <h3>Notes</h3>
+            <!--p>* The “Best” mortgages options available are determined based upon the following factors:
+            <ul>
+            <li>Interest Rate</li>
+            <li>Monthly Cost</li>
+            <li>Payment flexibility</li>
+            <li>Payout Penalty Cost</li>
+            <li>Ease of dealing with Lender</li>
+            <li>Speed (Responsiveness) Lender</li>
+            </ul>
+            </p-->
+            <!--p>Opportunity.DealNotes.MarketingField(“Notes”))</p-->
+            <p>- Please note that this proposal may contain forward-looking 
+statements and Visdom does not assume any obligation to update 
+forward-looking statements if management beliefs, expectations or 
+opinions should change due to reasons including interest rate changes, 
+lender product changes, time delays, lender acceptance or any other 
+reason.
+</p>
+            <ul></ul>
+                        <!--p>Disclosure around past not same as future, simply an analysis of historical interest rate events. (Guy to provide final text to cover off liability. )</p-->
+            <!-- <div class="button"><button id="close">Close</button></div> -->
+            
+        </div>
+        
+        <div class="content2" style=" display:none;padding: 10% 100px 26%;">
+            <h2 style="color:#0070C0;line-height: 50px;">Thank You</h2>
+            <p>Thank you for reviewing your proposal and selecting a Mortgage Product.</p>
+            <p>We have sent you an email confirming the product you have chosen 
+and will shortly be sending your application to the appropriate lender. 
+ </p>
+            <p>In the event there is any need for clarification, we will be in touch with you via email.</p>
+            <div class="button"><button id="close_thank">Close</button></div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<script>
+    
+    var session_id = "";
+    var uniq_id_counter = 0;
+    function rpc_jsonp(url, payload) {
+        var data = {
+        session_id: session_id,
+        id: payload.id
+        };
+
+        var ajax = {
+        type: "POST",
+        dataType: 'jsonp',
+        jsonp: 'jsonp',
+        cache: false,
+        data: data,
+        url: url
+        };
+
+        var payload_str = JSON.stringify(payload);
+        var payload_url = jQuery.param({r: payload_str});
+        if (payload_url.length < 2000) {
+        }
+        console.log(ajax);
+        ajax.data.r = payload_str;
+        console.log(ajax);
+        return jQuery.ajax(ajax);
+        }
+        function json(url, params) {
+        var deferred = jQuery.Deferred();
+        uniq_id_counter += 1;
+        var payload = {
+        'jsonrpc': '2.0',
+        'method': 'call',
+        'params': params,
+        'id': ("r" + uniq_id_counter)
+    };
+
+    rpc_jsonp(url, payload).then(function (data, textStatus, jqXHR) {
+            if (data.error) {
+            deferred.reject(data.error);
+            }
+            deferred.resolve(data.result, textStatus, jqXHR);
+            });
+            return deferred;
+    }
+
+    
+    jQuery("body").prepend('<div id="overlay" class="ui-widget-overlay" style="z-index: 1001; display: none;"></div>');
+    jQuery("body").prepend("<div id='PleaseWait' style='display: none;'><img style='width:100px;' src='@routes.Assets.at("images/loading.gif")'/></div>");
+    jQuery( "a#submit" ).click(function( event ) {
+        
+      //jQuery("div.content1").hide();
+      //jQuery("div#header h2, div#header h3").hide();
+      //jQuery("div.content2").show();
+      
+      
+        jQuery.each(jQuery('.product_selection'), function() {
+            if(jQuery(this).val()){
+                var row_id = jQuery(this).parent().parent();
+                var prod ;
+                prod = jQuery(row_id).attr('id');
+                call_prod(prod);
+                
+                var pass = true;
+                if(pass == false){
+                return false;
+                }
+                jQuery("#overlay, #PleaseWait").show();
+
+                return true;
+            }           
+        });
+        
+    });
+    jQuery( "#close" ).click(function( event ) {
+        //window.location=window.location.origin +"/visdom";
+        window.location=window.location.origin ;
+    });
+    jQuery( "#close_thank" ).click(function( event ) {
+        window.location=window.location.origin ;
+    });
+    function call_prod(prod){
+            var db = jQuery('#dn').val();
+            var login= jQuery('#un').val();
+            var password = jQuery('#dw').val();
+            var len = password.length;
+            password = password.substring(4,len);
+            var base_url = jQuery('#bl').val();
+            
+            "use strict";
+
+                var deferred = jQuery.Deferred();
+                
+                
+                //alert(base_url);
+                json(base_url+'web/session/authenticate', 
+                 {
+                    'base_location': base_url,
+                    'db': db,
+                    'login': login,
+                    'password':password ,
+                    
+                }).done(function (data) {
+                    
+                        var cl_id= jQuery('#cl').val();
+                        var uid = data.uid;
+                        var session_id = data.session_id;
+                        json(base_url+'web/dataset/call_kw', 
+                            //{"model":"crm.lead","method":"write","args":[[parseInt(cl_id)],{"selected_product":parseInt(prod)}],"kwargs":{"context":{"lang":"en_US","tz":"Canada/Atlantic","uid":parseInt(uid),"stage_type":"opportunity","default_type":"opportunity","default_user_id":parseInt(uid)}},"session_id":session_id,"context":{"lang":"en_US","tz":"Canada/Atlantic","uid":parseInt(uid)}}
+                            {"model":"crm.lead","method":"write","args":[[parseInt(cl_id)],{"selected_product":parseInt(prod)}],"kwargs":{"context":{"lang":"en_US","tz":"Canada/Atlantic","uid":parseInt(uid),"stage_type":"opportunity","default_type":"opportunity","default_user_id":parseInt(uid)}},"session_id":session_id,"context":{"lang":"en_US","tz":"Canada/Atlantic","uid":parseInt(uid)}}
+                        ).then(function (data) {
+                            jQuery("div.content1").hide();
+                            jQuery("div#header h2, div#header h3").hide();
+                            jQuery("div.content2").show();
+                            jQuery("#overlay").remove();
+                            jQuery("#PleaseWait").remove();
+                        });
+                        
+                    
+                    
+                    //alert(data.uid + " "+data.session_id)
+                    
+                    deferred.resolve();
+                });
+
+                return deferred;
+    }
+    
+    
+</script>
+<style>
+div#overlay {
+background-color: rgba(0,0,0,0.5);
+width: 100%;
+position: fixed;
+height: 100%;
+top: 0;
+}
+div#PleaseWait{
+z-index: 9999;
+position: fixed;
+vertical-align: middle;
+width: 100%;
+height: 100%;
+text-align: center;
+display: table;
+top: 45%;
+}
+</style>
+<!--script>
+$(document).ready(function(){
+    jQuery("body").prepend('<div id="overlay" class="ui-widget-overlay" style="z-index: 1001; display: none;"></div>');
+    jQuery("body").prepend("<div id='PleaseWait' style='display: none;'><img src='../images/loading.gif'/></div>");
+    
+    jQuery('a#submit').submit(function() {
+        var pass = true;
+        
+        if(pass == false){
+            return false;
+        }
+        jQuery("#overlay, #PleaseWait").show();
+
+        return true;
+    });
+})
+</script-->
+
+
+                    
+                    <!-- End Content -->
+                </main>
+                            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container-fluid">
+            <hr>
+            
+            <p class="pull-right">
+                <a href="#top" id="back-top">
+                    Back to Top             </a>
+            </p>
+            <p>
+                © 2015 Visdom           </p>
+        </div>
+    </footer>
+    
+</form>
+
+</body></html>
+}

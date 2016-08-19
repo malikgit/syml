@@ -1,0 +1,33 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>@title</title>
+                <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/css.css")">
+                <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/prettyPhoto.css")">
+                <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/styles_002.css")">
+                <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/styles.css")">
+                <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/template.css")">
+                <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/wizard2.css")">
+       
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/vission_11.png")">
+                <script src="@routes.Assets.at("javascripts/bootstrap.js")" type="text/javascript"></script>
+                 <script src="@routes.Assets.at("javascripts/horizontal-left-scroll.js")" type="text/javascript"></script>
+                                 <script src="@routes.Assets.at("javascripts/jquery_002.js")" type="text/javascript"></script>
+                                 <script src="@routes.Assets.at("javascripts/jquery_003.js")" type="text/javascript"></script>
+                                 <script src="@routes.Assets.at("javascripts/jquery-migrate.js")" type="text/javascript"></script>
+                                 <script src="@routes.Assets.at("javascripts/jquery-noconflict.js")" type="text/javascript"></script>
+                                 <script src="@routes.Assets.at("javascripts/jquery.js")" type="text/javascript"></script>
+                                 <script src="@routes.Assets.at("javascripts/jutooltip_002.js")" type="text/javascript"></script>
+                                                 <script src="@routes.Assets.at("javascripts/jutooltip_003.js")" type="text/javascript"></script>
+                                                 <script src="@routes.Assets.at("javascripts/jutooltip.js")" type="text/javascript"></script>
+                                                 <script src="@routes.Assets.at("javascripts/template.js")" type="text/javascript"></script>
+                
+        
+    </head>
+    <body>
+        @content
+    </body>
+</html>

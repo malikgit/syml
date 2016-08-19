@@ -1,0 +1,17 @@
+@(maximum : MaximumPurchase,opp_id:String)
+
+<div>
+<form action="postmaximum" method="POST">
+
+<input type="hidden" name="opp_id" value="@opp_id"/>
+Debt Reduction :<input name="debtReduction" value="@maximum.getDebtReduction"/><br>
+Down Payment :<input type="text" name="largestDownpaymentHouse" value="@maximum.getLargestDownpaymentHouse"/><br>
+Mortgage Amount :  <input  type="text"  name="maximumMortgageNoCondo" value="@maximum.getMaximumMortgageNoCondo"/><br>
+Insurance (See notes) :<input  type="text"  name="insureAmountMaxMortgage" value="@maximum.getInsureAmountMaxMortgage"/><br>
+Maximum Purchase :  <input  type="text"  name="variableMortHouseNoDebtRepayValue" value="@maximum.getVariableMortHouseNoDebtRepayValue"/><br>
+
+<div><input type="submit" value="Save"></input></div>
+</form>
+</div>
+
+
